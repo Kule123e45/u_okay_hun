@@ -20,7 +20,7 @@ The Time_Series/ directory the Python data analytics.
 Note: API keys and credential files have not been committed.
 
 ## 3. Application
-The Application/ directory contains all files related to the web application created to alert the Spotify user and an emergency contact when their listening pattern deviates significantly from their usual mood. This application was created using flask.
+The Web_Application/ directory contains all files related to the web application created to alert the Spotify user and an emergency contact when their listening pattern deviates significantly from their usual mood. This application was created using flask.
 
 ## References:
 - Information for implementing Spotify API

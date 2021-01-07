@@ -1,5 +1,5 @@
 # u_okay_hun
-![alt text](https://github.com/Kule123e45/u_okay_hun/assets/banner.jpg?raw=true)
+![image](https://images.squarespace-cdn.com/content/v1/5a5e8b9c29f18756949ff438/1609954473115-W2LECPKPHRMNXHGQVM2H/ke17ZwdGBToddI8pDm48kClzf79BoNW-ZxHXoon2AjIUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYwL8IeDg6_3B-BRuF4nNrNcQkVuAT7tdErd0wQFEGFSnJu68DSmt4cMLdp4eAfYkcvb7DDBIcnQOKaITO_G9BHxDWoadAkUKudpHVI3VS5UPw/banner.jpg?format=1500w)
 'U okay hun' is a web application designed to recognise sudden changes in Spotify listening patterns in order to detect deteriorating mental health. 
 Sensing & IOT Module, Design Engineering, Imperial College London
 

@@ -22,10 +22,10 @@ Note: API keys and credential files have not been committed.
 ## 3. Application
 The Application/ directory contains all files related to the web application created to alert the Spotify user and an emergency contact when their listening pattern deviates significantly from their usual mood. This application was created using flask.
 
-References:
-Information for implementing Spotify API
+## References:
+- Information for implementing Spotify API
 https://developer.spotify.com/documentation/web-api/
-Information for implementing FyCharts
+- Information for implementing FyCharts
 https://pypi.org/project/fycharts/
-Information for implementing ThingSpeak API
+- Information for implementing ThingSpeak API
 https://thingspeak.com/

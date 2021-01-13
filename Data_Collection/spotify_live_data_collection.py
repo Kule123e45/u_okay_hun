@@ -16,13 +16,11 @@ import requests
 
 
 
-os.environ["username"] = "Luke Hillery"
+os.environ["username"] = config.username
 scope = "playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-read-recently-played user-top-read user-read-playback-position app-remote-control streaming user-library-modify user-library-read user-read-playback-state user-modify-playback-state user-read-currently-playing"
-os.environ["SPOTIPY_CLIENT_ID"] = "3f203afa2be240ffbcaa571e12eee03e"
-os.environ["SPOTIPY_CLIENT_SECRET"] = "6947e86380b949d1b5665125bf4dfd4c"
-os.environ["SPOTIPY_REDIRECT_URI"] = "http://localhost:8888/callback"
-#os.environ["OAUTH_AUTHORIZE_URL"] = "https://accounts.spotify.com/authorize"
-#os.environ["OAUTH_TOKEN_URL"] = "https://accounts.spotify.com/api/token"
+os.environ["SPOTIPY_CLIENT_ID"] = config.SPOTIPY_CLIENT_ID
+os.environ["SPOTIPY_CLIENT_SECRET"] = config.SPOTIPY_CLIENT_SECRET
+os.environ["SPOTIPY_REDIRECT_URI"] = config.SPOTIPY_REDIRECT_URI
 
 
 #sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
@@ -206,24 +204,24 @@ def Spotify_API(your_username, scope, client_id, client_secret, redirect_uri):
 try:
     while True:
         try:
-            valence, timedate, name, artist, album, trackid, genre ,trackplaying, tempo, danceability, energy = Spotify_API("Luke Hillery",scope,"3f203afa2be240ffbcaa571e12eee03e","6947e86380b949d1b5665125bf4dfd4c","http://localhost:8888/callback")
+            valence, timedate, name, artist, album, trackid, genre ,trackplaying, tempo, danceability, energy = Spotify_API(config.username,scope,config.SPOTIPY_CLIENT_ID,config.SPOTIPY_CLIENT_SECRET,config.SPOTIFY_REDIRECT_URI)
             if trackplaying:
                 print("Now playing: {} by {}. How u feelin hun?...".format(name, artist))
                 trackplaying_binary = 1
-                RequestToThingspeak = 'https://api.thingspeak.com/update?api_key=RYJ2D37RI5EGO0MP&field1='+str(trackplaying_binary)+'&field2='+str(genre)+'&field3='+str(tempo)+'&field4='+str(danceability)+'&field5='+str(valence)+'&field6='+str(energy)
+                RequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_API_1+'&field1='+str(trackplaying_binary)+'&field2='+str(genre)+'&field3='+str(tempo)+'&field4='+str(danceability)+'&field5='+str(valence)+'&field6='+str(energy)
                 request = requests.get(RequestToThingspeak)
                 print('**Posted track data to thingspeak**')
                 time.sleep(120)
             else:
                 print('Nothing playing...')
                 trackplaying_binary = 0
-                emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key=RYJ2D37RI5EGO0MP&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
+                emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_API_1+'&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
                 request = requests.get(emptyRequestToThingspeak)
                 print('**Posted empty dataset to thingspeak**')
                 time.sleep(120)
         except TypeError:
             trackplaying_binary = 0
-            emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key=RYJ2D37RI5EGO0MP&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
+            emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_API_1+'&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
             request = requests.get(emptyRequestToThingspeak)
             print('TypeError occured, empty dataset posted to Thingspeak')
             time.sleep(120)
@@ -233,15 +231,3 @@ except KeyboardInterrupt:
 
 
 
-
-'''
-# Get moods for all tracks in playlist
-ids = getTrackIDs('angelicadietzel', '4R0BZVh27NUJhHGLNitU08')
-tracks = []
-for i in range(len(ids)):
-  #time.sleep(.5)
-  track = getTrackMood(ids[i])
-  tracks.append(track)
-
-print(tracks)
-'''

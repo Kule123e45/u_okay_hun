@@ -2,7 +2,7 @@
 """
 Created on Sat Jan  2 14:32:16 2021
 
-@author: higor
+@author: Luke
 """
 import spotipy
 import spotipy.util as util
@@ -11,9 +11,7 @@ import os
 import time
 from datetime import datetime
 import requests
-
-#import pandas as pd
-
+import config
 
 
 os.environ["username"] = config.username

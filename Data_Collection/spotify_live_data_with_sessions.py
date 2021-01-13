@@ -143,10 +143,10 @@ try:
     SET_BUCKET_SIZE = int(30) # number of samples in each session
     while True:
         try:
-            valence, timedate, name, artist, album, trackid, genre ,trackplaying, tempo, danceability, energy = Spotify_API("Luke Hillery",scope,"3f203afa2be240ffbcaa571e12eee03e","6947e86380b949d1b5665125bf4dfd4c","http://localhost:8888/callback")
+            valence, timedate, name, artist, album, trackid, genre ,trackplaying, tempo, danceability, energy = Spotify_API(config.username,scope,config.SPOTIPY_CLIENT_ID,config.SPOTIPY_CLIENT_SECRET,config.SPOTIPY_REDIRECT_URI)
             if trackplaying:
                 trackplaying_binary = 1
-                RequestToThingspeak = 'https://api.thingspeak.com/update?api_key=RYJ2D37RI5EGO0MP&field1='+str(trackplaying_binary)+'&field2='+str(genre)+'&field3='+str(tempo)+'&field4='+str(danceability)+'&field5='+str(valence)+'&field6='+str(energy)
+                RequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_1+'&field1='+str(trackplaying_binary)+'&field2='+str(genre)+'&field3='+str(tempo)+'&field4='+str(danceability)+'&field5='+str(valence)+'&field6='+str(energy)
                 request = requests.get(RequestToThingspeak)
                 print("Now playing: {} by {}. Posted data to Thingspeak.".format(name, artist))
                 if session_bucket_size < SET_BUCKET_SIZE:
@@ -169,7 +169,7 @@ try:
                         print('Session mean energy: {:.3f}, deviation = {:.3f}'.format((session_energy),(session_energy_std)))
                         print('Session mean danceability: {:.3f}, deviation = {:.3f}'.format((session_danceability),(session_danceability_std)))
                         print('Session mean tempo: {:.3f}, deviation = {:.3f}'.format((session_tempo),(session_tempo_std)))
-                        SessionRequestToThingspeak = 'https://api.thingspeak.com/update?api_key=L4P6XPRO3ODASMS3&field1='+str(session_valence)+'&field2='+str(session_energy)+'&field3='+str(session_danceability)+'&field4='+str(session_tempo)
+                        SessionRequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_2+'&field1='+str(session_valence)+'&field2='+str(session_energy)+'&field3='+str(session_danceability)+'&field4='+str(session_tempo)
                         request = requests.get(SessionRequestToThingspeak)
                         print('============================================')
                         if len(session_bucket) < (SET_BUCKET_SIZE/2):
@@ -192,7 +192,7 @@ try:
 
             else:
                 trackplaying_binary = 0
-                emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key=RYJ2D37RI5EGO0MP&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
+                emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_1+'&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
                 request = requests.get(emptyRequestToThingspeak)
                 print('No track currently playing. Empty dataset posted to Thingspeak.')
                 if session_bucket_size < SET_BUCKET_SIZE:
@@ -233,7 +233,7 @@ try:
 
         except TypeError:
             trackplaying_binary = 0
-            emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key=RYJ2D37RI5EGO0MP&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
+            emptyRequestToThingspeak = 'https://api.thingspeak.com/update?api_key='+config.THINGSPEAK_CHANNEL_1+'&field1=0&field2=N/A&field3=N/A&field4=N/A&field5=N/A&field6=N/A'
             request = requests.get(emptyRequestToThingspeak)
             print('TypeError occured, empty dataset posted to Thingspeak')
             if session_bucket_size < SET_BUCKET_SIZE:

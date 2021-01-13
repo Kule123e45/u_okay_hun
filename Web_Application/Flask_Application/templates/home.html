@@ -1,0 +1,45 @@
+<! shows home page with text in place of link to about page>
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://use.typekit.net/xbi3vtg.css">
+<style>
+.w3-btn {width:150px;}
+body,h1 {font-family: "proxima-nova", sans-serif}
+h1 {font-weight: 700;}
+body {font-weight: 400;}
+
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://user-images.githubusercontent.com/40210831/104245473-3e11a400-545c-11eb-98bc-dc53ec599a36.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    <!img src="https://user-images.githubusercontent.com/40210831/104245431-29cda700-545c-11eb-882b-f43a171c3053.png"  width="120" height="120">
+  </div>
+  <div class="w3-display-bottomright w3-margin w3-xlarge">
+    <img src="https://user-images.githubusercontent.com/40210831/104250033-95b40d80-5464-11eb-8e27-f8839685a1ea.png"  width="326" height="54">
+  </div>
+  <div class="w3-display-middle">
+    <img src="https://user-images.githubusercontent.com/40210831/104245807-d740ba80-545c-11eb-8957-e720e4e5883a.png"  width="926" height="183">
+    <!hr class="w3-border-white" style="margin:auto;width:40%">
+    <body><center><a href="{{url_for('about')}}" class="w3-button w3-margin-top w3-xlarge w3-white w3-round-xxlarge w3-hover-black w3-padding-xlarge">GET STARTED</a></center></body>
+  </div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    Read more at <a href="https://www.lukehillery.com/u-okay-hun" target="_blank">lukehillery.com</a>
+  </div>
+</div>
+
+</body>
+</html>

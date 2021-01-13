@@ -1,0 +1,44 @@
+<! shows about page with spotify link button>
+
+<!DOCTYPE html>
+<!w3schools link: https://www.w3schools.com/css/default.asp>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://use.typekit.net/xbi3vtg.css">
+<style>
+.w3-btn {width:150px;}
+body,h1 {font-family: "proxima-nova", sans-serif}
+h1 {font-weight: 700;}
+body {font-weight: 400;}
+
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://user-images.githubusercontent.com/40210831/104245473-3e11a400-545c-11eb-98bc-dc53ec599a36.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-margin w3-xlarge">
+    <img src="https://user-images.githubusercontent.com/40210831/104245431-29cda700-545c-11eb-882b-f43a171c3053.png"  width="120" height="120">
+  </div>
+  <div class="w3-display-middle">
+    <h1>U okay hun? is a web application designed to spot sudden changes in your Spotify behaviour to help identify deteriorating mental health. It learns your normal listening patterns, then sends you and a friend a text when you're listening to sadder music than usual.</h1>
+    <h1>Someone is there for you.</h1>
+    <hr class="w3-border-white w3-padding-large" style="margin:auto;width:60%">
+    <body><center><a href="{{url_for('auth')}}" class="w3-button w3-large w3-white w3-round-xxlarge w3-hover-green w3-padding-large">LINK YOUR SPOTIFY ACCOUNT NOW</a></center></body>
+  </div>
+
+  <div class="w3-display-bottomleft w3-padding-large">
+    Read more at <a href="https://www.lukehillery.com/u-okay-hun" target="_blank">lukehillery.com</a>
+  </div>
+</div>
+
+</body>
+</html>

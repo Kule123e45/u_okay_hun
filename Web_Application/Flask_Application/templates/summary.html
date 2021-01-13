@@ -1,0 +1,46 @@
+<! show message that all is set up correctly>
+
+<!DOCTYPE html>
+<!w3schools link: https://www.w3schools.com/css/default.asp>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://use.typekit.net/xbi3vtg.css">
+<style>
+.w3-btn {width:150px;}
+body,h1,h3 {font-family: "proxima-nova", sans-serif}
+h1 {font-weight: 700; font-size:42px;}
+h3 {font-weight: 700; font-size:126px;}
+body {font-weight: 400;}
+
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://user-images.githubusercontent.com/40210831/104245473-3e11a400-545c-11eb-98bc-dc53ec599a36.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-margin w3-xlarge">
+    <img src="https://user-images.githubusercontent.com/40210831/104245431-29cda700-545c-11eb-882b-f43a171c3053.png"  width="120" height="120">
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-padding">Analysis complete. That was a lot of lo-fi beats...</h1>
+    <h1 class="w3-padding">Your listening behaviour is:</h1>
+    <h3 class="w3-padding">56% positive.</h3>
+    <h1 class="w3-padding">U okay hun?</h1>
+    <body><center><a href="{{url_for('contact')}}" class="w3-button w3-large w3-white w3-round-xxlarge w3-hover-black w3-padding-large">WHAT'S NEXT</a></center></body>
+  </div>
+
+  <div class="w3-display-bottomleft w3-padding-large">
+    Read more at <a href="https://www.lukehillery.com/u-okay-hun" target="_blank">lukehillery.com</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -40,11 +40,12 @@ while '' in ids:
 
 
 
-os.environ["username"] = "Luke Hillery"
+os.environ["username"] = config.username
 scope = "playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-read-recently-played user-top-read user-read-playback-position app-remote-control streaming user-library-modify user-library-read user-read-playback-state user-modify-playback-state user-read-currently-playing"
-os.environ["SPOTIPY_CLIENT_ID"] = "3f203afa2be240ffbcaa571e12eee03e"
-os.environ["SPOTIPY_CLIENT_SECRET"] = "6947e86380b949d1b5665125bf4dfd4c"
-os.environ["SPOTIPY_REDIRECT_URI"] = "http://localhost:8888/callback"
+os.environ["SPOTIPY_CLIENT_ID"] = config.SPOTIPY_CLIENT_ID
+os.environ["SPOTIPY_CLIENT_SECRET"] = config.SPOTIPY_CLIENT_SECRET
+os.environ["SPOTIPY_REDIRECT_URI"] = config.SPOTIPY_REDIRECT_URI
+
 
 # =============================================================================
 # getTrackMood - Takes a track id and returns its valence
@@ -112,5 +113,5 @@ def Extract4th(lst):
 
 
 
-chart_mood = getChartMood(ids,"Luke Hillery",scope,"3f203afa2be240ffbcaa571e12eee03e","6947e86380b949d1b5665125bf4dfd4c","http://localhost:8888/callback")
+chart_mood = getChartMood(ids,config.username,scope,config.SPOTIPY_CLIENT_ID,config.SPOTIPY_CLIENT_SECRET,config.SPOTIPY_REDIRECT_URI)
 getAverageMood(chart_mood)

@@ -15,6 +15,6 @@ def TextAlert(message, to):
                         to=to
                     )
 message = "U okay hun? It looks like you're listening to some sad music, maybe switch it up a bit?"
-to = '+447952165272'
+to = config.MY_MOBILE_NUMBER
 
 TextAlert(message, to)

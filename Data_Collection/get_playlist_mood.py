@@ -240,8 +240,6 @@ def getGlobalMood():
 
 # =============================================================================
 
-#playlist_mood = getPlaylistMood('angelicadietzel', '4R0BZVh27NUJhHGLNitU08',"Luke Hillery",scope,"3f203afa2be240ffbcaa571e12eee03e","6947e86380b949d1b5665125bf4dfd4c","http://localhost:8888/callback")
-#print(playlist_mood)
 
 playlist_mood = getPlaylistMood(config.username_str, '1XdKNUPTGk025fvZPBLI2Y',config.username,scope,config.SPOTIPY_CLIENT_ID,config.SPOTIPY_CLIENT_SECRET,config.SPOTIPY_REDIRECT_URI)
 print(playlist_mood)

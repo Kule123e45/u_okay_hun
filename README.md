@@ -13,7 +13,7 @@ spotify_live_data_with_sessions.py Data collection scripts for collecting live a
 get_gb_charts.py and get_global_charts.py collect the list of top 200 songs in Great Britain and globally respectively. They use Spotify's API to collect track features and summarise the chart data.
 
 ## 2. Data Analysis
-The Time_Series/ directory the live MATLAB script used for data analysis and correlation visualisation
+The Time_Series_Analysis/ directory the live MATLAB script used for data analysis and correlation visualisation
 
 ## 3. Application
 The Web_Application/ directory contains all files related to the web application created to alert the Spotify user and an emergency contact when their listening pattern deviates significantly from their usual mood. This application was created using Flask.
